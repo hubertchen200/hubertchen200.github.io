@@ -10,14 +10,41 @@
     </ul>
   </nav>
 
-  <button onclick="document.getElementById('myImage').src='images/lightoff.gif'">Turn on the light</button>
+  <button onclick="document.getElementById('myImage').src='images/lighton.gif'">Turn on the light</button>
 
   <img id="myImage" src="pic_bulboff.gif" style="width:100px" onclick="onmyclick()">
   
-  <button onclick="document.getElementById('myImage').src='images/lighton.gif'">Turn off the light</button>
+  <button onclick="document.getElementById('myImage').src='images/lightoff.gif'">Turn off the light</button>
+
+
+  <button onclick="addElement()">Add a new Element</button>
 
 
 
 <p>I'm hosted with GitHub Pages.</p>
+
+
+<script>
+
+function addElement() {
+  // create a new div element
+  const newDiv = document.createElement("div");
+
+  // and give it some content
+  const newContent = document.createTextNode("Hi there and greetings!");
+
+  // add the text node to the newly created div
+  newDiv.appendChild(newContent);
+
+  // add the newly created element and its content into the DOM
+  const currentDiv = document.getElementById("div1");
+  document.body.insertBefore(newDiv, currentDiv);
+}
+
+
+</script>
+
+
+
 </body>
 </html>
