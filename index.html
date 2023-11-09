@@ -1,48 +1,38 @@
 <!DOCTYPE html>
 <html>
-    <title>HUBERT CHEN WEBSITE</title>
+<head>
+    <meta charset="UTF-8">
+    <title>Hubert Chen</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
 <body>
-<h2>menu</h2>
-<nav>
-    <ul>
-      <li><a href="#">Login</a></li>
-      <li><a href="#">Sign up</a></li>
-    </ul>
-  </nav>
-
-  <button onclick="document.getElementById('myImage').src='images/lighton.gif'">Turn on the light</button>
-
-  <img id="myImage" src="pic_bulboff.gif" style="width:100px" onclick="onmyclick()">
-  
-  <button onclick="document.getElementById('myImage').src='images/lightoff.gif'">Turn off the light</button>
-
-
-  <button onclick="addElement()">Add a new Element</button>
-
-<p>I'm hosted with GitHub Pages.</p>
-
-
-<script>
-
-function addElement() {
-  // create a new div element
-  const newDiv = document.createElement("div");
-
-  // and give it some content
-  const newContent = document.createTextNode("Hi there and greetings!");
-
-  // add the text node to the newly created div
-  newDiv.appendChild(newContent);
-
-  // add the newly  element and its content into the DOM
-  const currentDiv = document.getElementById("div1");
-  document.body.insertBefore(newDiv, currentDiv);
-}
-
-
-</script>
-
-
-
+    <header>
+        <h1>Hubert Chen</h1>
+        <p>Web Developer, Blogger, Creative Thinker</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Welcome to my personal website. I am passionate about web development and creativity.</p>
+    </section>
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <p>Check out some of my work and projects.</p>
+    </section>
+    <section id="blog">
+        <h2>Blog</h2>
+        <p>Read my latest blog posts on various topics.</p>
+    </section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Feel free to contact me through email: your.email@example.com</p>
+    </section>
 </body>
 </html>
