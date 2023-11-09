@@ -1,19 +1,33 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const loginForm = document.getElementById("login-form");
-    const errorMessage = document.getElementById("error-message");
+function validateLogin() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
 
-    loginForm.addEventListener("submit", function(event) {
-        event.preventDefault();
+    // Prepare data for the API request
+    var data = {
+        username: username,
+        password: password
+    };
 
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
-
-        // Replace this with your authentication logic
-        if (username === "1" && password === "1") {
-            // Redirect to the home page (replace with your actual URL)
-            window.location.href = "index.html";
-        } else {
-            errorMessage.innerText = "Invalid username or password. Please try again.";
+    // Make an AJAX request to the login API using fetch
+    fetch("https://hubertchen200.pythonanywhere.com/api/user", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Invalid username or password. Please try again.");
         }
+        return response.json();
+    })
+    .then(data => {
+        // Successful login response
+        alert("Login successful!");
+    })
+    .catch(error => {
+        // Failed login response
+        alert(error.message);
     });
-});
+}
