@@ -9,12 +9,11 @@ function validateLogin() {
     };
 
     // Make an AJAX request to the login API using fetch
-    fetch("https://hubertchen200.pythonanywhere.com/api/user", {
-        method: "POST",
+    fetch(`https://hubertchen200.pythonanywhere.com/api/users?email=${username}&password=${password}`, {
+        method: "GET",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
     })
     .then(response => {
         if (!response.ok) {
