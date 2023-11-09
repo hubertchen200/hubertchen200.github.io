@@ -9,12 +9,11 @@ function validateLogin() {
     };
 
     // Make an AJAX request to the login API using fetch
-    fetch(`https://hubertchen200.pythonanywhere.com/api/users?email=${username}&password=${password}`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-        },
-    })
+    let url = `https://hubertchen200.pythonanywhere.com/api/users`;
+    fetch(url + new URLSearchParams({
+        email: username,
+        password: password,
+    }))
     .then(response => {
         if (!response.ok) {
             throw new Error("Invalid username or password. Please try again.");
