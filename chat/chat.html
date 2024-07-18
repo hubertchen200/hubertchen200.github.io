@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple HTML Layout</title>
+    <link rel="stylesheet" href="chat.css">
+</head>
+
+<body>
+    <header>
+        <h1 id="welcome_username">welcome username</h1>
+        <nav>
+            <ul>
+                <li><a href="#friendrequest.html">Friend Request</a></li>
+                <li><a href="#profile.html">Profile</a></li>
+                <li><a href="signout.html">Sign Out</a></li>
+            </ul>
+        </nav>
+    
+    </header>
+    <main>
+        <section class="left">
+            <h2>Left Section</h2>
+            <p>This is the left section.</p>
+        </section>
+        <section class="right">
+            <h2>Right Section</h2>
+            <p>This is the right section.</p>
+        </section>
+    </main>
+    <footer>
+        <p>Footer</p>
+    </footer>
+
+    <script>
+        let sign_data = sessionStorage.getItem('data')
+        if (sign_data) {
+
+            sign_json = JSON.parse(sign_data);
+            document.getElementById("welcome_username").textContent = "Welcome " + sign_json['data']['username']
+        } else {
+            window.location.href = 'signin.html'
+        }
+
+
+
+    </script>
+</body>
+</html>

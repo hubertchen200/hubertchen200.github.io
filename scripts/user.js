@@ -11,7 +11,7 @@ document.getElementById('signup-form').addEventListener('submit', async function
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiaGkiLCJ1c2VybmFtZSI6ImhpIiwiZXhwIjoxNzIwODI3MTc4fQ.ghjPDVhMXRAmORvSmbgKdLKeOb2vSU6_mXuLkXuFhq0'
+            'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiaGkiLCJ1c2VybmFtZSI6ImhpIiwiZXhwIjoxNzIxMTU4MzUyfQ.P9mPpdd2KQtD_eBiLZ1SRBxMwSxfx9XM6B7VvOkWsU0'
         },
         body: JSON.stringify({"email": email, "password": password, "username": username, "firstname": firstname, "lastname": lastname })
     });

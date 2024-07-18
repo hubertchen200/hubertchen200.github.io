@@ -16,8 +16,8 @@
         <nav>
             <ul>
 
-                <li><a href="signin.html">Sign In</a></li>
-                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="signin/signin.html">Sign In</a></li>
+                <li><a href="signin/signup.html">Sign Up</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="#profile.html">Profile</a></li>
             </ul>
@@ -36,22 +36,10 @@
         
     </footer>
 
+    <script src="scripts/utils.js"></script>
     <script>
-
-        function add(x, y) {
-            return x + y;
-        }
-
-        console.log(add(1, 7));
-
-        a = document.getElementsByTagName("span")
-        console.log(a)
-        for (let i = 0; i < a.length; i++){
-            a[i].style.color = "red"    
-        }
-        a[0].style.color = "red"
-
-
+        getToken("12", "12")
+        
     </script>
 
 
