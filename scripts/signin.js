@@ -1,6 +1,9 @@
 
-
-const api_url = getApiUrl();
+const user=sessionStorage.getItem('data');
+if (user){
+    window.location.href = '/chat/chat.html';  
+}
+const userApiUrl = getUserUrl();
 
 
 document.getElementById('signin-form').addEventListener('submit', async function(event) {
@@ -8,12 +11,10 @@ document.getElementById('signin-form').addEventListener('submit', async function
 
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
-    const token = sessionStorage.getItem('token')
-    const response = await fetch(api_url + '/signin', {
+    const response = await fetch(userApiUrl + '/signin', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization':`Bearer ${token}`
         },
         body: JSON.stringify({"email": username, "password": password })
     });
@@ -24,7 +25,8 @@ document.getElementById('signin-form').addEventListener('submit', async function
         const data = await response.json();
         if ("status" in data) {
             console.log(data);
-            sessionStorage.setItem('data', JSON.stringify(data))
+            await getToken(username) 
+            sessionStorage.setItem('data', JSON.stringify(data));
             window.location.href = '/chat/chat.html';
         } else {
             alert('email and password not matched!');
@@ -33,3 +35,5 @@ document.getElementById('signin-form').addEventListener('submit', async function
         alert('Sign-in failed: ' + data.message);
     }
 });
+
+

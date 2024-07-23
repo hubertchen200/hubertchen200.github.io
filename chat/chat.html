@@ -14,15 +14,19 @@
             <ul>
                 <li><a href="#friendrequest.html">Friend Request</a></li>
                 <li><a href="#profile.html">Profile</a></li>
-                <li><a href="signout.html">Sign Out</a></li>
+                <li><a id="signOutLink" href="#">Sign Out</a></li>
             </ul>
         </nav>
     
     </header>
     <main>
         <section class="left">
-            <h2>Left Section</h2>
-            <p>This is the left section.</p>
+            <h2>Friends</h2>
+            <ul class="friend-list" id="friendList">
+                <li>a</li>
+                <li>b</li>
+                <!-- Friends will be added here dynamically -->
+            </ul>
         </section>
         <section class="right">
             <h2>Right Section</h2>
@@ -30,21 +34,11 @@
         </section>
     </main>
     <footer>
-        <p>Footer</p>
+        @Copyright by Hubert Chen, July 2024 
     </footer>
-
-    <script>
-        let sign_data = sessionStorage.getItem('data')
-        if (sign_data) {
-
-            sign_json = JSON.parse(sign_data);
-            document.getElementById("welcome_username").textContent = "Welcome " + sign_json['data']['username']
-        } else {
-            window.location.href = 'signin.html'
-        }
+    <script src="../scripts/utils.js"></script>
+    <script src="../scripts/chat.js"></script>
 
 
-
-    </script>
 </body>
 </html>

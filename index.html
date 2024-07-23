@@ -7,10 +7,8 @@
 
 
 <body>
-
-
-
     
+
     <header>
         <h1>Welcome To Parrot Chat</h1>
         <nav>
@@ -18,8 +16,6 @@
 
                 <li><a href="signin/signin.html">Sign In</a></li>
                 <li><a href="signin/signup.html">Sign Up</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="#profile.html">Profile</a></li>
             </ul>
         </nav>
     
@@ -36,10 +32,17 @@
         
     </footer>
 
+
     <script src="scripts/utils.js"></script>
     <script>
-        getToken("12", "12")
-        
+        // getToken("a", "a")
+
+        const user=sessionStorage.getItem('data');
+        if (user){
+            window.location.href = '/chat/chat.html';  
+        }
+
+
     </script>
 
 
