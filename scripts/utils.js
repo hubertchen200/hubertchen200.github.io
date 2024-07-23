@@ -73,7 +73,7 @@ async function get_friends(){
     if (response.ok) {
         const data = await response.json();
         console.log(data);
-        displayFriends(data)
+        displayFriends(data, username)
         return data;
     } else {
         console.log('get friend fail');
@@ -81,16 +81,25 @@ async function get_friends(){
     };
 
 
-    function displayFriends(friends) {
+    function displayFriends(friends, username) {
         const friendList = document.getElementById('friendList');
         friendList.innerHTML = '';
 
         friends['data'].forEach(friend => {
             const li = document.createElement('li');
-            li.textContent = friend['user2']
+            const friendName = (friend['user1'] == username) ? friend['user2'] : friend['user1'];
+
+            li.textContent = friendName;
+            li.id = `id_${friendName}`;
+            li.addEventListener('click', () => {
+                console.log(`Clicked on ${friendName}`);
+            });
             friendList.appendChild(li);
+
         });
     } 
+
+    
 
 
 

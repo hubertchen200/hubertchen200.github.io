@@ -48,3 +48,27 @@ nav ul li a:hover {
 
     
 }
+
+
+.friend-list {
+    list-style: none;
+    padding: 0;
+}
+.friend-list li {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.friend-list li:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+}
+.friend-list li:active {
+    background-color: #ccc;
+    transform: translateY(0);
+}
