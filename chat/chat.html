@@ -25,8 +25,16 @@
             <ul class="friend-list" id="friendList"></ul>
         </section>
         <section class="right">
-            <h2>Right Section</h2>
-            <p>This is the right section.</p>
+            <div class="chat-container">
+                <div class="chat-header">Chat Room</div>
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Messages will be added here dynamically -->
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="chatInput" placeholder="Type a message..." />
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+            </div>            
         </section>
     </main>
     <footer>

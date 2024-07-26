@@ -15,21 +15,41 @@
     }
     
 
-    friends = get_friends()
+    friends = getFriends()
     console.log(friends)
-    // friends = ['a', 'b', 'c']
 
-    // function displayFriends(friends) {
-    //     const friendList = document.getElementById('friendList');
-    //     friendList.innerHTML = '';
 
-    //     friends.forEach(friend => {
-    //         const li = document.createElement('li');
-    //         li.textContent = friend;
-    //         friendList.appendChild(li);
+
+    // const messages = [
+    //     { text: "Hi there!", sender: "other" },
+    //     { text: "Hello!", sender: "self" },
+    //     { text: "How are you?", sender: "other" },
+    //     { text: "I'm good, thanks!", sender: "self" }
+    // ];
+
+    // function displayMessages() {
+    //     const chatMessages = document.getElementById('chatMessages');
+    //     chatMessages.innerHTML = '';
+
+    //     messages.forEach(message => {
+    //         const div = document.createElement('div');
+    //         div.classList.add('message', message.sender);
+    //         div.textContent = message.text;
+    //         chatMessages.appendChild(div);
     //     });
     // }
 
-    // window.onload = get_friends();
+    // function sendMessage() {
+    //     const chatInput = document.getElementById('chatInput');
+    //     const text = chatInput.value.trim();
+    //     if (text !== '') {
+    //         messages.push({ text, sender: 'self' });
+    //         chatInput.value = '';
+    //         displayMessages();
+    //         chatMessages.scrollTop = chatMessages.scrollHeight; // Auto-scroll to the latest message
+    //     }
+    // }
 
-    // displayFriends(friends);
+    // window.onload = () => {
+    //     displayMessages();
+    // };
