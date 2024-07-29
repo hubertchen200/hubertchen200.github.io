@@ -1,8 +1,7 @@
-    document.getElementById("signOutLink").addEventListener("click", function(event) {
-    event.preventDefault(); 
-    sessionStorage.removeItem('data')
-    window.location.href = "/";
-
+    document.getElementById("signOutLink").addEventListener("click", (event) => {
+        event.preventDefault(); 
+        sessionStorage.removeItem('data')
+        window.location.href = "/";
     });
 
     let sign_data = sessionStorage.getItem('data')
@@ -69,7 +68,7 @@
                 li.addEventListener('click', async () => {
                     currentFriend = friendName;
                     await getMessages(friendName, selfName); 
-                    
+                    document.getElementById('chat-header').textContent = friendName
                     console.log(`Clicked on ${friendName}`);
                 });
                 friendList.appendChild(li);
@@ -106,6 +105,8 @@
     
             messageList.appendChild(div);
         });
+
+        messageList.scrollTop = messageList.scrollHeight; // Auto-scroll to the latest message
     }
     
     
@@ -130,9 +131,7 @@
             console.log('get message fail');
         }
 
-        const messageList = document.getElementById('chatMessages');
-
-        messageList.scrollTop = chatMessages.scrollHeight; // Auto-scroll to the latest message
+       
 
     };
     
@@ -142,6 +141,7 @@
         if (text !== '') {
             sendApiMessage(currentFriend, text, false);
             chatInput.value = '';
+
             // chatMessages.scrollTop = chatMessages.scrollHeight; // Auto-scroll to the latest message
         }
     }
@@ -163,7 +163,14 @@
             })
            
         });
-    
+        if (response.ok){
+            getMessages(currentFriend, loginId);
+        }
     }
     
-    
+  function handleKeyDown(event) { 
+    console.log(event);
+    if (event.key == 'Enter'){ 
+        sendMessage();
+    }
+  }
