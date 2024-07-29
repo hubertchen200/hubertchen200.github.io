@@ -20,6 +20,7 @@ main {
     padding: 1em;
 }
 .left {
+    flex: 0 0 15%;
     background-color: #f4f4f4;
 }
 .right {
