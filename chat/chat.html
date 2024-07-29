@@ -26,12 +26,12 @@
         </section>
         <section class="right">
             <div class="chat-container">
-                <div class="chat-header">Chat Room</div>
+                <div id="chat-header" class="chat-header"></div>
                 <div class="chat-messages" id="chatMessages">
                     <!-- Messages will be added here dynamically -->
                 </div>
                 <div class="chat-input">
-                    <input type="text" id="chatInput" placeholder="Type a message..." />
+                    <input type="text" id="chatInput" placeholder="Type a message..." onkeydown="handleKeyDown(event)"/>
                     <button onclick="sendMessage()">Send</button>
                 </div>
             </div>            
