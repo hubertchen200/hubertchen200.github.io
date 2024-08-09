@@ -1,18 +1,4 @@
-    document.getElementById("signOutLink").addEventListener("click", (event) => {
-        event.preventDefault(); 
-        sessionStorage.removeItem('data')
-        window.location.href = "/";
-    });
-
-    let sign_data = sessionStorage.getItem('data')
-    if (sign_data) {
-
-        sign_json = JSON.parse(sign_data);
-        document.getElementById("welcome_username").textContent = "Welcome " + sign_json['data']['username']
-    } else {
-        window.location.href = 'signin.html'
-    }
-    
+checkLogin()
 
     friends = getFriends()
     console.log(friends)
@@ -168,9 +154,4 @@
         }
     }
     
-  function handleKeyDown(event) { 
-    console.log(event);
-    if (event.key == 'Enter'){ 
-        sendMessage();
-    }
-  }
+  

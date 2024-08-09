@@ -11,21 +11,6 @@ header, footer {
     text-align: center;
     padding: 1em;
 }
-main {
-    display: flex;
-    flex: 1;
-}
-.left, .right {
-    flex: 1;
-    padding: 1em;
-}
-.left {
-    flex: 0 0 15%;
-    background-color: #f4f4f4;
-}
-.right {
-    background-color: #e9e9e9;
-}
 nav ul {
     list-style: none;
     padding: 0;
@@ -48,6 +33,26 @@ nav ul li a:hover {
     background-color: #8c8c8c;
 
     
+}
+
+main {
+    display: flex;
+    flex: 1;
+}
+
+
+.left, .right {
+    flex: 1;
+    padding: 1em;
+}
+
+
+.left {
+    flex: 0 0 15%;
+    background-color: #f4f4f4;
+}
+.right {
+    background-color: #e9e9e9;
 }
 
 

@@ -73,4 +73,28 @@ async function getToken(username){
     }
 };
 
+function signOut() {
+    sessionStorage.removeItem('data')
+    window.location.href = "/";    
+}
+
+function checkLogin(){
+    let sign_data = sessionStorage.getItem('data')
+    if (sign_data) {
+
+        sign_json = JSON.parse(sign_data);
+        document.getElementById("welcome_username").textContent = "Welcome " + sign_json['data']['username']
+    } else {
+        window.location.href = '/signin/signin.html'
+    }
+    
+}
+
+function handleKeyDown(event) { 
+    console.log(event);
+    if (event.key == 'Enter'){ 
+        sendMessage();
+    }
+  }
+
 
