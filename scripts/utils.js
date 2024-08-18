@@ -1,5 +1,100 @@
 
 
+
+function addBannerStyle(status){
+    // Create a <style> element
+    const style = document.createElement('style');
+    if (status == 'SUCCESS'){
+        color = 'green';
+    } else {
+        color = 'red';
+    }
+    // Add the CSS code to the style element
+    style.textContent = `
+        .banner {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: ${color};
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            margin-left: 15px;
+        }
+
+        .close-btn:hover {
+            color: #f1f1f1;
+        }
+
+        #banner button {
+            width: 50px;
+        }
+    `;
+
+    // Append the style element to the head of the document
+    document.head.appendChild(style);
+}
+
+function createBanner(content, status){
+    const banner = document.createElement('div');
+    banner.id = 'banner';
+    banner.className = 'banner';
+
+    // Create the span for the message
+    const message = document.createElement('span');
+    message.id = 'message-id';
+    message.textContent = content;
+    banner.appendChild(message);
+
+    // Create the close button
+    const closeButton = document.createElement('button');
+    closeButton.id = 'close-banner';
+    closeButton.className = 'close-btn';
+    closeButton.innerHTML = '&times;';
+    banner.appendChild(closeButton);
+
+    // Append the banner to the body
+    document.body.appendChild(banner);
+    addBannerStyle(status);
+    // Add event listener to close the banner when the button is clicked
+    closeButton.addEventListener('click', function() {
+        banner.style.display = 'none';
+    });
+}
+
+function showBanner(content, status){
+    const banner = document.getElementById('banner');
+    if (!banner){
+        createBanner(content, status);
+    } else {
+        const message = document.getElementById('message-id');
+        message.textContent = content;
+        if (status == 'SUCCESS'){
+            banner.style.backgroundColor = "green";
+        } else {
+            banner.style.backgroundColor = "red";
+        }
+        banner.style.display = 'block';
+    }
+
+}
+
+
+
+
 function getUserUrl() {
     const cur_url =window.location.href;
     try {

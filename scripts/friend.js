@@ -82,9 +82,12 @@ async function sendFriendRequest(){
 
     if (response.ok) {
         console.log('success');
+        showBanner("successfully sent friend request", 'SUCCESS')
+
         return
     } else {
         console.log('send friend request fail');
+        showBanner("Failed to send friend request", 'FAIL')
     }
 }
 
