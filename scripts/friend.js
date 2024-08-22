@@ -23,7 +23,7 @@ function displayRequests(requests){
         div.appendChild(acceptButton);
         declineButton  = document.createElement('button');
         declineButton.textContent = 'Decline';
-        acceptButton.addEventListener('click', () => {
+        declineButton.addEventListener('click', () => {
             declineRequest(rqst['sender']);
         });
 
@@ -105,10 +105,9 @@ async function acceptRequest(sender){
     });
 
     if (response.ok) {
-        console.log('success');
-        return
+        showBanner('Accepted friend request successfully', 'SUCCESS')
     } else {
-        console.log('accept friend request failed');
+        showBanner('Failed to accept friend request', 'FAILED')
     }
 }
 

@@ -29,10 +29,10 @@ document.getElementById('signin-form').addEventListener('submit', async function
             sessionStorage.setItem('data', JSON.stringify(data));
             window.location.href = '/chat/chat.html';
         } else {
-            alert('email and password not matched!');
+            showBanner('email and password not matched!', 'FAILED');
         }
     } else {
-        alert('Sign-in failed: ' + data.message);
+        showBanner('Sign-in failed: ' + data.message, 'FAILED');
     }
 });
 

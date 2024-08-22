@@ -38,3 +38,29 @@ BEGIN
 END//
 
 DELIMITER ;
+
+
+
+
+DELIMITER //
+
+CREATE TRIGGER prevent_duplicate_friend_request
+BEFORE INSERT ON requests
+FOR EACH ROW
+BEGIN
+    -- Check if a friendship already exists
+    IF EXISTS (
+        SELECT 1 
+        FROM friends 
+        WHERE (user1 = NEW.receiver AND user2 = NEW.sender) 
+           OR (user1 = NEW.sender AND user2 = NEW.receiver)
+    ) THEN
+        -- Raise an error to prevent the insert
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Friendship already exists. Cannot send a friend request to an existing friend.';
+    END IF;
+END;
+
+//
+
+DELIMITER ;

@@ -20,14 +20,9 @@ document.getElementById('signup-form').addEventListener('submit', async function
     const data = await response.json();
 
     if (response.ok) {
-        // if ("status" in data) {
         window.location.href = '/signin/signin.html';
-    //     } else {
-    //         alert('sign up failed!');
-    //     }
-    }
-            
-    else {
-        alert('Sign-up failed: ' + data.message);
+ 
+    } else {
+        showBanner(data['error'], 'FAILED');
     }
 });
